@@ -160,7 +160,7 @@
                     'senha' => md5($this->request->getPost('senha'))
                 ];
 
-                $usuario = $modelUsuario->where($arrayUsuario)->first();
+                $usuario = $modelUsuario->where($arrayUsuario)->findAll();
                 if($usuario)
                 {
                     session()->set('usuarioLogado',$arrayUsuario['usuario']);
