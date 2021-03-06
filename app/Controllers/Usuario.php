@@ -90,7 +90,7 @@
                     if (!is_null($this->request->getPost('senha')))
                     {
                         if ($this->request->getPost('senha') === $this->request->getPost('confirma')) {
-                            $arrayUsuario['senha'] = md5($this->request->getPost('senha'));
+                            $arrayUsuario['senha'] = password_hash($this->request->getPost('senha'),PASSWORD_DEFAULT);
                             if($modelUsuario->update($id,$arrayUsuario))
                             {
                                 $dados['mensagem'] = 'Dados alterados com sucesso';
@@ -126,7 +126,7 @@
             if(!is_null($id)) {
                 $senhaPadrao = 'senacpsg';
                 $arraySenha = [
-                    'senha' => md5($senhaPadrao)
+                    'senha' => password_hash($senhaPadrao,PASSWORD_DEFAULT) //md5($senhaPadrao)
                 ];
 
                 $modelUsuario = new ModelUsuario();
@@ -157,14 +157,15 @@
                 $modelUsuario = new ModelUsuario();
                 $arrayUsuario = [
                     'usuario' => $this->request->getPost('usuario'),
-                    'senha' => md5($this->request->getPost('senha'))
+                    'senha' => $this->request->getPost('senha')
                 ];
-
-                $usuario = $modelUsuario->where($arrayUsuario)->findAll();
-                if($usuario)
+                $usuario = $modelUsuario->where('usuario',$arrayUsuario['usuario'])->first();
+                $usuarioBusca = $modelUsuario->buscaUsuario($arrayUsuario, $usuario);
+                if($usuarioBusca)
                 {
                     session()->set('usuarioLogado',$arrayUsuario['usuario']);
                     session()->set('loggedIn', true);
+                    session()->set('nivelUser', $usuario->nivel);
                     return view('pagina_gerenciamento');
                 } else {
                     session()->setFlashdata('mensagem','Erro no Login: Usuario ou Senha incorreto');

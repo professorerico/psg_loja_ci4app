@@ -24,17 +24,17 @@
                     <tbody class="table-success">
                     <?php foreach ($produtos as $produto): ?>
                     <tr>
-                        <td><?php echo $produto["nome"]; ?></td>
+                        <td><?php echo $produto->nome; ?></td>
                         <td>
-                            <img src="<?php echo '../../../writable/imagens/'.$produto["imagem"]; ?>" alt="<?php echo $produto["imagem"]; ?>"
+                            <img src="<?php echo '../../../writable/imagens/'.$produto->imagem; ?>" alt="<?php echo $produto->imagem; ?>"
                                  width=50em>
                         </td>
-                        <td class="text-right"><?php echo str_replace('.', ',',$produto["preco"]); ?></td>
-                        <td><?php echo date('d/m/Y', strtotime($produto["validade"])); ?></td>
-                        <td><?php echo $produto["descricao"]; ?></td>
+                        <td class="text-right"><?php echo str_replace('.', ',',$produto->preco); ?></td>
+                        <td><?php echo date('d/m/Y', strtotime($produto->validade)); ?></td>
+                        <td><?php echo $produto->descricao; ?></td>
                         <td>
-                            <a href="<?php echo base_url('index.php/produtos/apagar').'/'.$produto['codigo'] ?> "><i class="fas fa-eraser"></i></a>
-                            <a href="<?php echo base_url('index.php/produtos/atualizar').'/'.$produto['codigo']; ?>"><i
+                            <a href="<?php echo base_url('index.php/produtos/apagar').'/'.$produto->codigo ?> "><i class="fas fa-eraser"></i></a>
+                            <a href="<?php echo base_url('index.php/produtos/atualizar').'/'.$produto->codigo; ?>"><i
                                         class="fas fa-pencil-alt"></i></a>
                         </td>
                     </tr>

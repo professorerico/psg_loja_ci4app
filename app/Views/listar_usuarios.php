@@ -21,17 +21,23 @@
                 <tbody class="table-warning">
                     <?php foreach ($usuario as $user) : ?>
                     <tr>
-                        <td><?php echo $user['usuario'] ?></td>
+                        <td><?php echo $user->usuario ?></td>
                         <td>
-                            <a href="<?php echo base_url('index.php/usuario/excluir').'/'.$user['id'] ?>">
-                                <i class="fas fa-user-minus"></i>
-                            </a>
-                            <a href="<?php echo base_url('index.php/usuario/alterar').'/'.$user['id'] ?>">
-                                <i class="fas fa-user-edit"></i>
-                            </a>
-                            <a href="<?php echo base_url('index.php/usuario/resetar_senha').'/'.$user['id'] ?>">
-                                <i class="fas fa-user-shield"></i>
-                            </a>
+                            <?php if (session()->nivelUser == 3) :?>
+                                <a href="<?php echo base_url('index.php/usuario/excluir').'/'.$user->id ?>">
+                                    <i class="fas fa-user-minus"></i>
+                                </a>
+                            <?php endif ?>
+                            <?php if (session()->nivelUser == 3 || $user->usuario == session()->usuarioLogado) :?>
+                                <a href="<?php echo base_url('index.php/usuario/alterar').'/'.$user->id ?>">
+                                    <i class="fas fa-user-edit"></i>
+                                </a>
+                            <?php endif ?>
+                            <?php if (session()->nivelUser == 3 || $user->usuario == session()->usuarioLogado) :?>
+                                <a href="<?php echo base_url('index.php/usuario/resetar_senha').'/'.$user->id ?>">
+                                    <i class="fas fa-user-shield"></i>
+                                </a>
+                            <?php endif ?>
                         </td>
                     </tr>
                     <?php endforeach ?>

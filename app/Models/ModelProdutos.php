@@ -9,7 +9,7 @@
         protected $table = 'tbProdutos';
         protected $primaryKey = 'codigo';
 
-        protected $returnType = 'array';
+        protected $returnType = 'object';
 
         protected $allowedFields = ['nome', 'descricao', 'preco', 'validade', 'imagem'];
 

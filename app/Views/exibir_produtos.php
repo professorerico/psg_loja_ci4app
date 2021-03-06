@@ -32,12 +32,12 @@
         <tr>
             <?php foreach ($produtos as $produto) : ?>
             <td>
-                <img src="<?php echo '../writable/'.'imagens/'.$produto['imagem']; ?>" alt="<?php echo $produto['imagem']; ?>" width="50em" >
+                <img src="<?php echo '../writable/'.'imagens/'.$produto->imagem; ?>" alt="<?php echo $produto->imagem; ?>" width="50em" >
             </td>
-            <td><?php echo $produto['nome']; ?></td>
-            <td class="text-right"><?php echo $produto['preco']; ?></td>
-            <td><?php echo date('d/m/Y' ,strtotime($produto['validade'])); ?></td>
-            <td><?php echo $produto['descricao']; ?></td>
+            <td><?php echo $produto->nome; ?></td>
+            <td class="text-right"><?php echo $produto->preco; ?></td>
+            <td><?php echo date('d/m/Y' ,strtotime($produto->validade)); ?></td>
+            <td><?php echo $produto->descricao; ?></td>
             <td>
                 <a href="#">
                     <i class="fas fa-cart-arrow-down"></i></a>

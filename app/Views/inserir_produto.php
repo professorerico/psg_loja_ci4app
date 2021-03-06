@@ -26,15 +26,15 @@
                 <div class="d-flex flex-column">
                     <div class="form-group ">
                         <label for="nome">Nome: </label>
-                        <input type="text" name="nome" required value="<?php echo (isset($produto) ? $produto['nome'] : '')?>">
+                        <input type="text" name="nome" required value="<?php echo (isset($produto) ? $produto->nome : '')?>">
                     </div>
                     <div class="form-group">
                         <label for="preco">Preço: R$ </label>
-                        <input type="number" min="0.00" step="0.01" name="preco" required value="<?php echo (isset($produto) ? $produto['preco'] : '') ?>">
+                        <input type="number" min="0.00" step="0.01" name="preco" required value="<?php echo (isset($produto) ? $produto->preco : '') ?>">
                     </div>
                     <div class="form-group">
                         <label for="data">Validade: </label>
-                        <input type="date" name="data" required value="<?php echo (isset($produto) ? $produto['validade'] : '') ?>">
+                        <input type="date" name="data" required value="<?php echo (isset($produto) ? $produto->validade : '') ?>">
                     </div>
                     <div class="form-group">
                         <label for="imagem_produto">Imagem: </label>
@@ -44,14 +44,14 @@
                 <?php if($acao !== "Inserir") : ?>
                     <div class="d-flex flex-column">
                         <div class="form-group">
-                            <img src="<?php echo '../../../../writable/imagens/'.$produto['imagem']?>" width="100em">
+                            <img src="<?php echo '../../../../writable/imagens/'.$produto->imagem?>" width="100em">
                         </div>
                     </div>
                 <?php endif ?>
                 <div class="d-flex flex-column">
                     <div class="form-group">
                         <label for="descricao">Descrição: </label>
-                        <textarea name="descricao" cols="30" rows="10"><?php echo (isset($produto) ? $produto['descricao'] : '') ?></textarea>
+                        <textarea name="descricao" cols="30" rows="10"><?php echo (isset($produto) ? $produto->descricao : '') ?></textarea>
                     </div>
                 </div>
             </div>

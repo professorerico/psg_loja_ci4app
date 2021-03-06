@@ -18,11 +18,11 @@
                     <div class="d-flex flex-row justify-content-around">
                         <div class="form-group">
                             <label for="usuario">Nome de Usuário: </label>
-                            <input type="text " name="usuario" <?php echo ($acao !== 'Inserir' ? 'value='.$usuario['usuario'] : 'required placeholder="Nome do usuário"') ?>>
+                            <input type="text " name="usuario" <?php echo ($acao !== 'Inserir' ? 'value='.$usuario->usuario : 'required placeholder="Nome do usuário"') ?>>
                         </div>
                         <div class="form-group">
                             <label for="email">e-mail: </label>
-                            <input type="email" name="email" size="40em" <?php echo ($acao !== 'Inserir' ? 'value='.$usuario['email'] : 'required') ?>>
+                            <input type="email" name="email" size="40em" <?php echo ($acao !== 'Inserir' ? 'value='.$usuario->email : 'required') ?>>
                         </div>
                     </div>
                     <div class="flex-row justify-content-around">
